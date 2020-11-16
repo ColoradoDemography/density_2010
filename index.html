@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" /> 
+
+    <title>Population Density Map</title>
+    <link rel="icon" type="image/png" href="/images/COfavicon2.png">
+    <link rel="stylesheet" href="https://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css">
+        <link rel="stylesheet" href="/css/layout.css">
+		
+	  <!-- Make sure your CSS file is listed before jQuery -->
+<link rel="stylesheet" href="/css/uniform.aristo.css" media="screen" />
+		<script src="/js/jquery-1.9.1.js"></script>
+	<script src="/js/jquery-ui.js"></script>
+<script src="/js/jquery.uniform.min.js"></script>
+
+	  
+<!--[if IE]>
+<style>
+	#header{
+  border:solid 1px #999;
+  background: #E8E8E8;}
+</style>
+<![endif]-->
+
+    <link rel="stylesheet" href="/css/style.css">
+	
+	<script>
+		var dojoConfig = { parseOnLoad: true };
+	</script>
+	
+    <script src="https://js.arcgis.com/3.7/"></script>
+
+    <script src="/js/density.js"></script>
+ 
+    
+  </head>
+
+  <body class="claro">
+
+  <div id="mainWindow" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design:'headline'" style="width:100%; height:100%;">
+
+      <div id="header" class="shadow roundedCorners" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'top'">
+        <div id="title"></div>
+        <div id="subtitle"></div>
+
+      </div>
+      <div id="mapDiv" class="roundedCorners shadow" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region:'center'"></div>
+
+
+    </div>
+	
+	  		<div id="search"></div>
+			
+<div id="legendDiv" ></div>
+
+<div id="num" >
+		<!--<span>Selection:&nbsp;</span>-->
+		<select name="f2" id="g2"  onChange="midFunction();">
+			<option value="1" selected>&nbsp;Population Density</option>
+			<option value="2">&nbsp;Housing Unit Density</option>
+		</select>
+</div>
+
+<!--<div id="uniform-printbtns" class="button" onmouseover="$(this).addClass('hover');"  onmouseout="$(this).removeClass('hover');"style="-moz-user-select: none;"  onclick="javascript:Clickhereformap('uniform-printbtns');"><span id='printspan'>Print Map</span></div>	-->
+		
+  </body>
+  
+</html>
