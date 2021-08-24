@@ -54,7 +54,7 @@ function init() {
 	dojo.connect(map, "onLoad", initOperationalLayer);
 
 	dojo.byId("title").innerHTML = "Population Density";
-	dojo.byId("subtitle").innerHTML = "US Census 2010, Block Data";
+	dojo.byId("subtitle").innerHTML = "US Census 2020, Block Data";
 
 	//addbasemap("TerrainMap");
 }
@@ -77,12 +77,12 @@ function initOperationalLayer(map) {
 	//document.getElementsByClassName('logo-med')[0].style.backgroundImage = "url(\"https://dola.colorado.gov/gis-php/files/gis-images/CO_LOGO.png\")";
 	document.getElementsByClassName('logo-med')[0].style.backgroundRepeat = "no-repeat";
 
-	Block = new esri.layers.FeatureLayer("https://services.arcgis.com/IamIM3RJ5xHykalK/arcgis/rest/services/CBlocksDissoved/FeatureServer/0", {
+	Block = new esri.layers.FeatureLayer("https://services.arcgis.com/IamIM3RJ5xHykalK/arcgis/rest/services/Pop_Density_2020/FeatureServer/0", {
 		mode : esri.layers.FeatureLayer.MODE_ONDEMAND,
 		outFields : ["*"]
 	});
 
-	Block2 = new esri.layers.FeatureLayer("https://services.arcgis.com/IamIM3RJ5xHykalK/arcgis/rest/services/HousingDissolved/FeatureServer/0", {
+	Block2 = new esri.layers.FeatureLayer("https://services.arcgis.com/IamIM3RJ5xHykalK/arcgis/rest/services/HU_Density_2020/FeatureServer/0", {
 		mode : esri.layers.FeatureLayer.MODE_ONDEMAND,
 		outFields : ["*"]
 	});
@@ -92,7 +92,7 @@ function initOperationalLayer(map) {
 	defaultSymbol = new esri.symbol.SimpleFillSymbol();
 	defaultSymbol.setColor(new dojo.Color([150, 150, 150, 0.5])).setOutline(new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([100, 100, 100]), 0.1));
 
-	renderer = new esri.renderer.ClassBreaksRenderer(defaultSymbol, 'Symb');
+	renderer = new esri.renderer.ClassBreaksRenderer(defaultSymbol, 'POD');
 	renderer.addBreak({
 		minValue : 0.5,
 		maxValue : 1.5,
@@ -134,7 +134,7 @@ function initOperationalLayer(map) {
 
 	var renderer3;
 
-	renderer3 = new esri.renderer.ClassBreaksRenderer(defaultSymbol, 'Symb');
+	renderer3 = new esri.renderer.ClassBreaksRenderer(defaultSymbol, 'HUD');
 	renderer3.addBreak({
 		minValue : 0.5,
 		maxValue : 1.5,
